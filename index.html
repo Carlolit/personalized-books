@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
@@ -5,29 +6,42 @@
 </head>
 <body>
 
-    <h1>Создать персональную историю</h1>
+<h1>Создать персональную историю</h1>
 
-    <form>
-        <div>
-            <label>Имя героя:</label><br>
-            <input type="text" placeholder="Введите имя">
-        </div>
+<div>
+    <label>Имя героя:</label><br>
+    <input type="text" id="heroName" placeholder="Введите имя">
+</div>
 
-        <br>
+<div>
+    <label>Фотография:</label><br>
+    <input type="file" id="heroPhoto">
+</div>
 
-        <div>
-            <label>Фотография:</label><br>
-            <input type="file">
-        </div>
+<button type="button" onclick="createStory()">Создать историю</button>
 
-        <br>
-
-        <button type="button" onclick="createStory()">Создать историю</button>
-    </form>
 <script>
-    function createStory() {
-        alert("Кнопка работает. История будет здесь.");
+function createStory() {
+    const name = document.getElementById('heroName').value;
+    const photoInput = document.getElementById('heroPhoto');
+    const photo = photoInput.files[0];
+
+    if (!name) {
+        alert("Введите имя героя!");
+        return;
     }
+
+    if (!photo) {
+        alert("Выберите фото!");
+        return;
+    }
+
+    console.log("Имя героя:", name);
+    console.log("Файл фото:", photo);
+
+    alert(`Данные готовы! Имя: ${name}, Фото: ${photo.name}`);
+}
 </script>
+
 </body>
 </html>
