@@ -36,10 +36,25 @@ function createStory() {
         return;
     }
 
-    console.log("Имя героя:", name);
-    console.log("Файл фото:", photo);
+    // Создаём FormData для отправки на сервер
+    const formData = new FormData();
+    formData.append('heroName', name);
+    formData.append('heroPhoto', photo);
 
-    alert(`Данные готовы! Имя: ${name}, Фото: ${photo.name}`);
+    // Временный тестовый API (будет позже реальный)
+    fetch('https://example.com/api/create-story', {
+        method: 'POST',
+        body: formData
+    })
+    .then(response => response.json())
+    .then(data => {
+        // Здесь получаем результат от сервера
+        alert("История создана! Текст: " + data.story);
+    })
+    .catch(error => {
+        console.error(error);
+        alert("Произошла ошибка при создании истории");
+    });
 }
 </script>
 
