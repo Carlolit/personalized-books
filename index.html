@@ -1,1 +1,33 @@
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Персональная история</title>
+</head>
+<body>
 
+    <h1>Создать персональную историю</h1>
+
+    <form>
+        <div>
+            <label>Имя героя:</label><br>
+            <input type="text" placeholder="Введите имя">
+        </div>
+
+        <br>
+
+        <div>
+            <label>Фотография:</label><br>
+            <input type="file">
+        </div>
+
+        <br>
+
+        <button type="button" onclick="createStory()">Создать историю</button>
+    </form>
+<script>
+    function createStory() {
+        alert("Кнопка работает. История будет здесь.");
+    }
+</script>
+</body>
+</html>
